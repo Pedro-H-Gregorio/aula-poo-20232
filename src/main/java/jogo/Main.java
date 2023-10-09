@@ -41,10 +41,13 @@ public class Main {
 //                    System.out.println("Opção inválida");
 //                    break;
 //            }
-        double randNum = Math.random(); // 0 >= num > 1.0
-        if (randNum < 0.3) {
-            System.out.println("Encontrou um inimigo");
-        }
-        System.out.println(randNum);
+//        double randNum = Math.random(); // 0 >= num > 1.0
+//        if (randNum < 0.3) {
+//            System.out.println("Encontrou um inimigo");
+//        }
+//        System.out.println(randNum);
+        PrimeiraFase x = new PrimeiraFase();
+        x.movimentacao();
+
     }
 }
