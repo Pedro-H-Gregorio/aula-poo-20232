@@ -1,5 +1,12 @@
 package jogo;
 
+import interfaces.IFases;
+import modelos.Personagem;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Vector;
+
 public class Main {
     public static void main(String[] args) {
 //        Personagem raimundo = new Personagem("Raimundo Nonato");
@@ -46,8 +53,13 @@ public class Main {
 //            System.out.println("Encontrou um inimigo");
 //        }
 //        System.out.println(randNum);
-        PrimeiraFase x = new PrimeiraFase();
-        x.movimentacao();
+        IFases[] fases = {new PrimeiraFase()};
+        Personagem personagem;
+        for(IFases fase : fases){
+            fase.preparacao();
+            fase.iniciacao();
+            fase.mapaPrincipal();
+        }
 
     }
 }

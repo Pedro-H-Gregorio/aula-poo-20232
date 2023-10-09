@@ -33,7 +33,7 @@ public class Mago extends Personagem {
 
     @Override
     public void setArma(Arma arma) {
-        if (arma.getTipo().equals(tipoArma.MAGIA)){
+        if (arma.getTipo().getKey()  == tipoArma.CORPO_A_CORPO.getKey()){
             super.setArma(arma);
         }else System.out.println("Você não pode usar armas diferentes do tipo de magia.");
     }

@@ -1,13 +1,19 @@
 package jogo;
 
 import Personagens.Guerreiro;
+import enums.tipoArma;
+import interfaces.IFases;
 import modelos.Arma;
 import modelos.Armadura;
+import modelos.Personagem;
 
 import java.util.Scanner;
 
-public class PrimeiraFase {
+public class PrimeiraFase implements IFases {
     Scanner teclado = new Scanner(System.in);
+    private Personagem personagem;
+
+    @Override
     public void preparacao(){
         // Abertura do jogo
         System.out.println("Aqui começa a sua jornada como jogador de RPG.\n Um mundo de possibilidades se expandem para você fugir da sua realidade\n" +
@@ -21,14 +27,16 @@ public class PrimeiraFase {
                 System.out.println("Informe o nome do seu guerreiro: ");
                 Guerreiro guerreiro = new Guerreiro(teclado.next());
                 System.out.println("Informe a arma do seu guerreiro: ");
-                guerreiro.setArma(new Arma(teclado.next(), 30, 0));
+                guerreiro.setArma(new Arma(teclado.next(), 30, 0, tipoArma.CORPO_A_CORPO));
                 guerreiro.setArmadura(new Armadura(15));
+                personagem = guerreiro;
                 break;
             case "2":
                 System.out.println("Ainda está em produção esse personagem");
         }
     }
 
+    @Override
     public void iniciacao(){
         System.out.println("Parabens pelas suas escolhas! Agora que você oficialmente entrou neste universo, deixe-me lhe apresentar um pouco mais sobre ele.\n" +
                 "A cidade de Stownfield já foi um dia muito bela e bem habitada, era a única da região que produzia ferramentas de guerra, e isso gerava um ótimo desempenho para cidade.\n" +
@@ -37,7 +45,9 @@ public class PrimeiraFase {
                 "a guerra ainda continua.\n Você, grande guerreiro, foi o escolhido e contratado pela província de Musting, indicado pelo ministério de magos e guerreiros para acabar com esse caos.\n" +
                 "Vale lembrar que neste universo a magia existe, você poderá encontrar grandes problemas em sua trajetória. Você agora se encontra no portão principal da cidade, boa sorte!");
     }
-    public void mapPrincipal(){
+
+    @Override
+    public void mapaPrincipal(){
         System.out.println("       Y\n" +
                         "       |\n" +
                         "       S---------R---------R---------S\n" +
@@ -61,6 +71,7 @@ public class PrimeiraFase {
                 "A letra 'Y' representa você, que se localiza no portão principal da cidade.");
     }
 
+    @Override
     public  void movimentacao(){
         String[] map = {"L---------J---------K---------X" +
                 "/         /         -         -" +
@@ -137,5 +148,25 @@ public class PrimeiraFase {
 
         }
 
+    }
+
+    @Override
+    public void lutaContrBoss() {
+
+    }
+
+    @Override
+    public void lutaContraBossFinal() {
+
+    }
+
+    @Override
+    public Personagem finalDeFase() {
+        return personagem;
+    }
+
+    @Override
+    public int jogaDado() {
+        return 0;
     }
 }

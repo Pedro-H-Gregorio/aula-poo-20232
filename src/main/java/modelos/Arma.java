@@ -10,10 +10,11 @@ public class Arma {
 
 
 
-    public Arma(String nome, int dano, int mana) {
+    public Arma(String nome, int dano, int mana, tipoArma tipo) {
         this.nome = nome;
         this.dano = dano;
         this.mana = mana;
+        this.tipo = tipo;
     }
 
     public String getNome() {
