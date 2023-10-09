@@ -3,25 +3,23 @@ package modelos;
 public class Pocao {
     private String nome;
     private int cura;
+    private String detalhes;
 
-    public Pocao(String nome, int cura) {
+    public Pocao(String nome, int cura, String detalhes) {
         this.nome = nome;
         this.cura = cura;
+        this.detalhes = detalhes;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public int getCura() {
         return cura;
     }
 
-    public void setCura(int cura) {
-        this.cura = cura;
+    public String getDetalhes() {
+        return detalhes;
     }
 }

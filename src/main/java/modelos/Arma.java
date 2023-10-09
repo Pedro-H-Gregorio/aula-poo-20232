@@ -1,10 +1,12 @@
 package modelos;
 
+import enums.tipoArma;
+
 public class Arma {
     private String nome;
     private int dano;
     private int mana;
-    private String tipo;
+    private tipoArma tipo;
 
 
 
@@ -38,11 +40,11 @@ public class Arma {
         this.mana = mana;
     }
 
-    public String getTipo() {
+    public tipoArma getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(tipoArma tipo) {
         this.tipo = tipo;
     }
 }

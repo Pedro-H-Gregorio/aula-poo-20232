@@ -13,14 +13,6 @@ public class Guerreiro extends Personagem {
         this.forca = 10;
     }
 
-    public Bardo getBardo() {
-        return bardo;
-    }
-
-    public void setBardo(Bardo bardo) {
-        this.bardo = bardo;
-    }
-
     public int getForca() {
         return forca;
     }
@@ -33,12 +25,14 @@ public class Guerreiro extends Personagem {
         super.setArma(arma);
     }
 
+    @Override
     public void pedirBardoTocar(Bardo bardo, Boss personagem) {
         this.forca += 5;
         setVida(getVida() + 10);
-        bardo.atacar(personagem);
+        super.pedirBardoTocar(bardo, personagem);
     }
 
+    @Override
     public void bardoPara() {
         this.forca -= 5;
         setVida(getVida() - 5);
