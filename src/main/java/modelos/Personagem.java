@@ -3,6 +3,8 @@ package modelos;
 import Personagens.Bardo;
 import Personagens.Boss;
 
+import java.util.Scanner;
+
 public abstract class Personagem {
     private String nome;
     private int vida;
@@ -90,6 +92,12 @@ public abstract class Personagem {
         bardo.atacar(personagem);
     };
     public abstract void bardoPara();
+
+    public void pedirPocaoBardo(Bardo bardo, Scanner comando){
+        bardo.getMochila();
+        System.out.println("Qual poção você deseja pegar?");
+        recuperarVida(bardo.getPocao(comando.nextInt()));
+    }
 
     public void subirDeNivel(){
         this.vida += 100;

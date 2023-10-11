@@ -48,6 +48,7 @@ public class PrimeiraFase implements IFases {
 
     @Override
     public void mapaPrincipal(){
+        // refazer função com matrizes 7x7
         System.out.println("       Y\n" +
                         "       |\n" +
                         "       S---------R---------R---------S\n" +

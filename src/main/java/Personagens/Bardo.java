@@ -25,13 +25,17 @@ public class Bardo {
 
     public void getMochila() {
         System.out.println("Suas poções são:");
-        for(Pocao pocao : mochila){
-            System.out.println(pocao);
+        for(int i = 0; i <= mochila.size(); i++){
+            System.out.printf("%d | %s", i,mochila.get(i).getNome());
         }
     }
 
     public void addPocao(Pocao pocao) {
         this.mochila.add(pocao);
+    }
+
+    public Pocao getPocao(int index){
+        return this.mochila.remove(index);
     }
 
     public String getNome() {
