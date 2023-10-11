@@ -8,9 +8,11 @@ import modelos.Pocao;
 public class Mago extends Personagem {
 
     private int mana;
+    private int maxMana;
     public Mago(String nome) {
         super(nome);
         this.mana = 100;
+        this.maxMana = 500;
     }
 
     public int getMana() {
@@ -18,7 +20,7 @@ public class Mago extends Personagem {
     }
 
     public boolean isFullMana(){
-        return mana == 500;
+        return mana == maxMana;
     }
 
     public void recuperaMana(Pocao pocao){
@@ -48,5 +50,12 @@ public class Mago extends Personagem {
     @Override
     public void bardoPara() {
         this.setVida(10);
+    }
+
+    @Override
+    public void subirDeNivel() {
+        this.mana += 100;
+        this.maxMana += 200;
+        super.subirDeNivel();
     }
 }

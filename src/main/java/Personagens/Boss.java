@@ -1,5 +1,6 @@
 package Personagens;
 
+import enums.NivelBoss;
 import modelos.Arma;
 import modelos.Armadura;
 import modelos.Personagem;
@@ -10,11 +11,13 @@ public class Boss  {
     private Arma arma;
     private int forca;
 
-    public Boss(String nome, Armadura armadura, Arma arma, String nivel) {
+    private NivelBoss nivel;
+
+    public Boss(String nome, Armadura armadura, Arma arma, NivelBoss nivel) {
         this.nome = nome;
         this.vida = 1000;
         this.arma = arma;
-        this.forca = nivel.equals("f")? 3: nivel.equals("m")? 5: 7;
+        this.forca = nivel.getForca();
     }
 
     public String getNome() {
@@ -38,5 +41,9 @@ public class Boss  {
         System.out.printf("%s atacou %s com %s%n",
                 this.nome, outro.getNome(), arma.getNome());
         outro.receberDano(arma.getDano() + forca);
+    }
+
+    public void aumentarNivel(){
+        this.nivel.setKey(nivel.getKey() + 1);
     }
 }

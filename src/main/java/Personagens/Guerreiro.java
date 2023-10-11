@@ -6,7 +6,6 @@ import modelos.Personagem;
 public class Guerreiro extends Personagem {
 
     private int forca;
-    public Bardo bardo;
 
     public Guerreiro(String nome) {
         super(nome);
@@ -50,5 +49,11 @@ public class Guerreiro extends Personagem {
         System.out.printf("%s atacou %s com %s%n",
                 this.getNome(), outro.getNome(), getArma().getNome());
         outro.receberDano(getArma().getDano() + getForca());
+    }
+
+    @Override
+    public void subirDeNivel() {
+        this.forca += 15;
+        super.subirDeNivel();
     }
 }

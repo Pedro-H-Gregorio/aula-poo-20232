@@ -90,4 +90,10 @@ public abstract class Personagem {
         bardo.atacar(personagem);
     };
     public abstract void bardoPara();
+
+    public void subirDeNivel(){
+        this.vida += 100;
+        this.arma.setDano(arma.getDano() + 40);
+        this.armadura.setProtecao(armadura.getProtecao() + 20);
+    }
 }
